@@ -30,7 +30,7 @@ public class controladoraCRUD {
                         int opcionTabla = s.nextInt();
                         switch (opcion) {
                             case 1:
-                                CRUD.CrearTabla("Alumnos", statement, new String[]{"idAlumnado int PRIMARY KEY AUTO_INCREMENT",
+                                CRUD.CrearTabla( "Alumnos", statement, new String[]{"idAlumnado int PRIMARY KEY AUTO_INCREMENT",
                                         "Nombre varchar(45)", "Apellidos varchar(45)", "FechaNacimiento date", "Antiguedad int"});
                                 break;
                             case 2:
@@ -79,6 +79,9 @@ public class controladoraCRUD {
                         System.out.println("Introduzca la condición de borrado");
                         String condicion = s.next();
                         CRUD.borrar(statement, tabla, condicion);
+                        break;
+
+                    case 7: CRUD.transaccion(con);
                         break;
                     default:
                         System.out.println("La opción es incorrecta");
